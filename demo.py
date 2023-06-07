@@ -1,7 +1,7 @@
 # this file is not important and not related to other files so no need to undertand this.
 # ofc if you are curious then ask me i will tell u :)
 
-import pandas as pd
+# import pandas as pd
 
 def findGenre(a):
     gen = ""
@@ -12,14 +12,16 @@ def findGenre(a):
             gen += ','
     return gen.split(",")
 
-# arr = []
-#df = pd.ExcelFile('../movieDatasetCopy.xlsx').parse()
-df = pd.read_csv('../animes.csv')
-#arr.append(df['Genre'])
-arr = df['genre'].tolist()
+# # arr = []
+# #df = pd.ExcelFile('../movieDatasetCopy.xlsx').parse()
+# df = pd.read_csv('../animes.csv')
+# #arr.append(df['Genre'])
+# arr = df['genre'].tolist()
 
-start = findGenre(arr[0])
-for i in range(1,len(arr)):
-    start = list(set(start + findGenre(arr[i])))
+# start = findGenre(arr[0])
+# for i in range(1,len(arr)):
+#     start = list(set(start + findGenre(arr[i])))
+
+# print([] == [])
 
 #https://youtu.be/S7TbHDN8EXA

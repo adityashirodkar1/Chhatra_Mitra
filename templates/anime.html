@@ -1,0 +1,340 @@
+<!-- 
+    <div>
+        <form action="/intermediate/1">
+            <button>By Name</button>
+        </form>
+    </div> 
+    <div>
+        <form action="/intermediate/2">
+            <button>By Emotion</button>
+        </form>
+    </div> 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>CHHATRA MITRA</title>
+    <style>
+        body{
+            background-color: black;
+            color: white;
+        }
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        .section-one {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url(https://res.cloudinary.com/dc4kfswj7/image/upload/v1682180343/chatraMitra/thumb-1920-1198137_vuqosv.jpg);
+        background-size: cover;
+        background-position: center;
+        filter: brightness();
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+        }
+
+        .container {
+        text-align: center;
+        color: white;
+        }
+
+        h1 {
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        font-size: 4rem;
+        font-weight: 400;
+        }
+
+        p {
+        font-size: 1.15rem;
+        letter-spacing: 3px;
+        margin: 20px 0 40px;
+        }
+
+        .home-button {
+        background: none;
+        color: azure;
+        text-decoration: none;
+        border: 1px white solid;
+        padding: 10px 15px;
+        }
+
+        .home-button:hover,
+        .home-button:focus {
+        background: hsl(0, 100%, 100%, .2);
+        outline: none;
+        }
+
+        .section-two {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        }
+
+        .container-two {
+        display: flex;
+        padding: 50px;
+        gap: 20px;
+        width: 100%;
+        }
+
+        .content h1 {
+        font-size: 2.75rem;
+        }
+
+        .content h1::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 5px;
+        background: #D1A370; 
+        }
+
+        .content p {
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        }
+
+        .content-image img {
+        width: 300px;
+        object-fit: scale-down;
+        }
+
+        @media (max-width: 700px) {
+        .section-two {
+            height: 100%;
+        }
+        .container-two {
+            flex-direction: column;
+            height: 100%;
+        }
+        }
+
+        footer {
+        width: 100%;
+        background: #212121;
+        color: white;
+        padding: 25px;
+        text-align: center;
+        }
+
+        .footer-container {
+        display: flex;
+        justify-content: center;
+        }
+
+        .footer-content {
+        margin: 0 50px 0;
+        }
+
+        .footer-content svg {
+        width: 50px;
+        fill: white;
+        }
+
+        .footer-content h6 {
+        font-size: 1.2rem;
+        font-weight: lighter;
+        margin-bottom: 25px;
+        color: #D1A370;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        }
+
+        .footer-content ul {
+        list-style: none;
+        }
+
+        .footer-content ul li {
+        margin: 25px 0;
+        }
+
+        .footer-content ul li a {
+        text-decoration: none;
+        color: white;
+        }
+
+        .footer-content ul li a:hover,
+        .footer-content ul li a:focus {
+        color: hsl(32, 51%, 63%, 0.7);
+        }
+
+        @media (max-width: 600px) {
+        .footer-container {
+            flex-direction: column;
+        }
+        }
+        #byname, #byemotion{
+            color: black;
+        }
+        #home{
+          color: white;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- Modal Name -->
+    <div class="modal fade" id="byname" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Recommendations by Anime Name</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/byName">
+                    <label for="animeName">Name of the Anime:</label>
+                    <input name="animeName" type="text"><br>
+                
+            </div>
+            <div class="modal-footer">
+            
+            <button class="btn btn-primary">Save changes</button>
+        </form>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    <!-- Modal Emotion -->
+    <div class="modal fade" id="byemotion" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+
+    <section class="section-one"> 
+       <div class="container">
+         <h1>Anime</h1>
+         <p>A PLACE OUTSIDE REALITY</p>
+         <button class="home-button" data-bs-toggle="modal" data-bs-target="#byname">By Name</button>
+         <a class="home-button" href="/byEmotion">By Emotion</a>
+       </div>  
+     </section> 
+    
+    <section class="section-two">
+       <div class="container-two">
+         <div class="container-two-content content">
+           <h1>Recommended Anime</h1>
+           {% if animes != [] %}
+           <div class="row">
+                {% for anime in animes: %}
+                    <div class="col-sm">
+                        <a href="/show/{{anime['index']}}"><img src="{{anime['poster']}}" alt="{{anime['title']}}" width="150" height="262"></a>
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+         </div>
+         <div class="container-two-content content-image">
+            <!-- <a href="/byName" class="btn btn-warning" type="button">NEXT 6</a>  -->
+         </div>
+       </div>
+    </section>
+    <section class="section-two mt-1">
+      <div class="container-two">
+        <div class="container-two-content content">
+          <h1>Anime Recommended by your friends</h1>
+          <div class="row">
+               {% for anime in franime: %}
+                   <div class="col-sm">
+                       <a href="/show/{{anime['index']}}"><img src="{{anime['poster']}}" alt="{{anime['title']}}" width="150" height="262"></a>
+                   </div>
+               {% endfor %}
+           </div>
+        </div>
+        <!-- <div class="container-two-content content-image">
+           <img src="https://images.unsplash.com/photo-1659269661337-7ee76a7645b5?crop=entropy&cs=tinysrgb&fm=jpg&ixid=MnwzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NjE4ODcwODY&ixlib=rb-1.2.1&q=80"> 
+        </div> -->
+      </div>
+      
+   </section>
+      
+      <footer>
+        <div class="footer-container">
+          <div class="footer-content">
+            <svg viewBox="0 0 512 512" width="100" title="university">
+     <path d="M496 128v16a8 8 0 0 1-8 8h-24v12c0 6.627-5.373 12-12 12H60c-6.627 0-12-5.373-12-12v-12H24a8 8 0 0 1-8-8v-16a8 8 0 0 1 4.941-7.392l232-88a7.996 7.996 0 0 1 6.118 0l232 88A8 8 0 0 1 496 128zm-24 304H40c-13.255 0-24 10.745-24 24v16a8 8 0 0 0 8 8h464a8 8 0 0 0 8-8v-16c0-13.255-10.745-24-24-24zM96 192v192H60c-6.627 0-12 5.373-12 12v20h416v-20c0-6.627-5.373-12-12-12h-36V192h-64v192h-64V192h-64v192h-64V192H96z" />
+   </svg>
+   <h3><a href="/home" id="home">Home</a></h3>
+          </div>  
+          <div class="footer-content">
+            <h6>Social</h6>
+            <ul>
+              <li><a href="">Facebook</a><li>
+              <li><a href="">Instagram</a><li>
+              <li><a href="">Twitter</a><li>
+            </ul>
+          </div>
+          
+          <div class="footer-content">
+            <h6>Service</h6>
+            <ul>
+              <li><a href="">Compare</a><li>
+              <li><a href="">Download</a><li>
+              <li><a href="">Feedback</a><li>
+              <li><a href="">Bug Report</a><li>
+            </ul>
+          </div>
+          
+          <div class="footer-content">
+            <h6>Activity</h6>
+            <ul>
+              <li><a href="">Influencers</a><li>
+              <li><a href="">Affiliate</a><li>
+              <li><a href="">Co-Branding</a><li>
+              <li><a href="">Honor</a><li>
+              <li><a href="">Give Away</a><li>
+            </ul>
+          </div>
+          
+        </div>
+      </footer>
+
+
+
+
+
+
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#byname">
+            Launch demo modal
+        </button> -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+   </body>
+   </html>

@@ -1,0 +1,280 @@
+
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHHATRA MITRA</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+      /* Google Fonts - Poppins */
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+      }
+      body{
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #EFEFEF;
+      }
+      .slide-container{
+        max-width: 1120px;
+        width: 100%;
+        padding: 40px 0;
+      }
+      .slide-content{
+        margin: 0 40px;
+        overflow: hidden;
+        border-radius: 25px;
+      }
+      .card{
+        border-radius: 25px;
+        background-color: #FFF;
+      }
+      .image-content,
+      .card-content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 14px;
+      }
+      .image-content{
+        position: relative;
+        row-gap: 5px;
+        padding: 25px 0;
+      }
+      .overlay{
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #4070F4;
+        border-radius: 25px 25px 0 25px;
+      }
+      .overlay::before,
+      .overlay::after{
+        content: '';
+        position: absolute;
+        right: 0;
+        bottom: -40px;
+        height: 40px;
+        width: 40px;
+        background-color: #4070F4;
+      }
+      .overlay::after{
+        border-radius: 0 25px 0 0;
+        background-color: #FFF;
+      }
+      .card-image{
+        position: relative;
+        height: 150px;
+        width: 150px;
+        border-radius: 50%;
+        background: #FFF;
+        padding: 3px;
+      }
+      .card-image .card-img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        border: 4px solid #4070F4;
+      }
+      .name{
+        font-size: 18px;
+        font-weight: 500;
+        color: #333;
+      }
+      .description{
+        font-size: 14px;
+        color: #707070;
+        text-align: center;
+      }
+      .button{
+        border: none;
+        font-size: 16px;
+        color: #FFF;
+        padding: 8px 16px;
+        background-color: #4070F4;
+        border-radius: 6px;
+        margin: 14px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .button:hover{
+        background: #265DF2;
+      }
+
+      .swiper-navBtn{
+        color: #6E93f7;
+        transition: color 0.3s ease;
+      }
+      .swiper-navBtn:hover{
+        color: #4070F4;
+      }
+      .swiper-navBtn::before,
+      .swiper-navBtn::after{
+        font-size: 38px;
+      }
+      .swiper-button-next{
+        right: 0;
+      }
+      .swiper-button-prev{
+        left: 0;
+      }
+      .swiper-pagination-bullet{
+        background-color: #6E93f7;
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active{
+        background-color: #4070F4;
+      }
+
+      @media screen and (max-width: 768px) {
+        .slide-content{
+          margin: 0 10px;
+        }
+        .swiper-navBtn{
+          display: none;
+        }
+      }
+      #content{
+        font-size: large;
+      }
+
+    </style>
+  </head>
+  <body> 
+    
+  
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Assignment</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="/assignment" method="post">
+        <div class="modal-body">
+          
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingInput" placeholder="Subject" name="sub">
+                <label for="floatingInput">Subject</label>
+            </div>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingAss" placeholder="Assignment/Experiment/Exam" name="assgn">
+                <label for="floatingPassword">Assignment/Experiment/Exam</label>
+            </div>
+            <div class="form-group">
+                <label for="date" class="mt-2">Due-date</label>
+                <div class="col-5">
+                <div class="input-group date" id="datepicker">
+                    <input type="date" class="form-control" id="date" name="due"/>
+                </div>
+                </div>
+            </div>
+          
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary">Save Assignment</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div> 
+
+
+  <div class="slide-container swiper mt-5">
+    <div class="slide-content">
+        <div class="card-wrapper swiper-wrapper">
+
+          <div class="card swiper-slide">
+            <div class="image-content">
+                <span class="overlay"></span>
+            </div>
+
+            <div class="card-content">
+                <h2 class="name" id="content">Add Assignment</h2>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+</button>
+            </div>
+          </div>                                    
+          
+                    {% for i in range(0,n): %}
+                        <div class="card swiper-slide">
+                          <div class="image-content">
+                              <span class="overlay"></span>
+                          </div>
+  
+                          <div class="card-content">
+                              <h2 class="name" id="content">Subject: {{ass[i]['sub']}}</h2>
+                              <p class="description" id="content">Work: {{ass[i]['assgn']}}</p>
+                              <p class="description" id="content">Due: {{ass[i]['due']}}</p>
+  
+                              <a href="/assignment/delete/{{i}}" class="button">Delete</a>
+                          </div>
+                      </div>
+                    
+                    {% endfor %}
+                      </div>
+                  </div>
+              </div>
+  
+              <div class="swiper-button-next swiper-navBtn"></div>
+              <div class="swiper-button-prev swiper-navBtn"></div>
+              <div class="swiper-pagination"></div>
+          </div>
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        <script>
+          var swiper = new Swiper(".slide-content", {
+          slidesPerView: 3,
+          spaceBetween: 25,
+          loop: true,
+          centerSlide: 'true',
+          fade: 'true',
+          grabCursor: 'true',
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+            dynamicBullets: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+
+          breakpoints:{
+              0: {
+                  slidesPerView: 1,
+              },
+              520: {
+                  slidesPerView: 2,
+              },
+              950: {
+                  slidesPerView: 3,
+              },
+          },
+        });
+
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  </body>
+  </html>
+          
+  
+  
